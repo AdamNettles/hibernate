@@ -3,6 +3,7 @@ package dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -26,6 +27,7 @@ public class TestTableHome {
 	@PersistenceContext
 	private EntityManager entityManager;
 
+//	@Transactional
 	public void persist(TestTable transientInstance) {
 		log.debug("persisting TestTable instance");
 		try {
@@ -72,20 +74,22 @@ public class TestTableHome {
 		}
 	}
 
-	
-	public void tryStuff(){
+	/**
+	 * update dao (right?) method for the TextCol column
+	 */
+	public void updateTextcol(int id, String newTextcolVal){
 		log.debug("Trying stuff with tryStuff()");
 		Session session = null;
         TestTable testTable = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            testTable =  session.get(TestTable.class,new Integer(1));
+            testTable =  session.get(TestTable.class,new Integer(id));
             Hibernate.initialize(testTable);
             
             Transaction tx = null;
             try {
                tx = session.beginTransaction();
-               testTable.setTextcol("Changed!!!");
+               testTable.setTextCol(newTextcolVal);
                session.save(testTable);
                //SQLQuery sqlQuery = session.createSQLQuery("SELECT * FROM TEST_TABLE");
                //Query query = session.createQuery("");
@@ -107,5 +111,17 @@ public class TestTableHome {
                 session.close();
             }
         }
+        
 	}
+	
+	/**
+	 * simple insert for the TestTable
+	 * @param testTable
+	 */
+	public void insert(TestTable testTable){
+		log.debug("entering insert...");
+		
+	}
+	
+	
 }
