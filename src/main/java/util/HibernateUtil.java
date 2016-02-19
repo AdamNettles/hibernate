@@ -15,7 +15,9 @@ public class HibernateUtil {
 			sessionFactory = new Configuration().addPackage("pojo") // the fully qualified package name
 					.addAnnotatedClass(TestTable.class)
 					// .addResource("test/animals/orm.xml")
-					.configure("hibernate.cfg.xml").buildSessionFactory();
+//					.configure("hibernate.cfg.xml")
+					.configure()
+					.buildSessionFactory();
 		} catch (Throwable ex) {
 			// Make sure you log the exception, as it might be swallowed
 			System.err.println("Initial SessionFactory creation failed." + ex);

@@ -1,4 +1,4 @@
-package dao;
+package hibernate.test.dao;
 
 import static org.junit.Assert.*;
 
@@ -13,6 +13,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import dao.TestTableHome;
 import pojo.TestTable;
 import util.HibernateUtil;
 
@@ -29,25 +30,25 @@ public class TestTableHomeTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testPersist() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testRemove() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testMerge() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFindById() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testPersist() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testRemove() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testMerge() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testFindById() {
+//		fail("Not yet implemented");
+//	}
 
 	// @Test
 	// public void testUpdateTextcol(){

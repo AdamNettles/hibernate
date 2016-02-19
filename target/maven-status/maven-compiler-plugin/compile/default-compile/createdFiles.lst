@@ -1,1 +1,4 @@
+pojo/TestTable.class
+util/HibernateUtil.class
+dao/TestTableHome.class
 rest/IndexController.class
