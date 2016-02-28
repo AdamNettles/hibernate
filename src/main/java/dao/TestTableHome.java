@@ -27,7 +27,6 @@ public class TestTableHome {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-//	@Transactional
 	public void persist(TestTable transientInstance) {
 		log.debug("persisting TestTable instance");
 		try {
@@ -91,10 +90,6 @@ public class TestTableHome {
                tx = session.beginTransaction();
                testTable.setTextCol(newTextcolVal);
                session.save(testTable);
-               //SQLQuery sqlQuery = session.createSQLQuery("SELECT * FROM TEST_TABLE");
-               //Query query = session.createQuery("");
-               
-               //do some work
                tx.commit();
             }
             catch (Exception e) {
@@ -115,13 +110,19 @@ public class TestTableHome {
 	}
 	
 	/**
-	 * simple insert for the TestTable
-	 * @param testTable
+	 * 
+	 * @param name
+	 * @return
 	 */
-	public void insert(TestTable testTable){
-		log.debug("entering insert...");
-		
-	}
+//	public List<addressbook> getUsersByName (String name)  
+//	{  
+//	    Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();  
+//	      
+//	    List<addressbook> list = currentSession.createCriteria(AddressBook.class)  
+//	                             .add(Restrictions.eq("name", name))  
+//	                             .list();  
+//	    return list;  
+//	} 
 	
 	
 }
